@@ -1,0 +1,3 @@
+SELECT *
+FROM memes
+ORDER BY id ASC;
