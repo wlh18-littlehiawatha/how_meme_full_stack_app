@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import axios from 'axios'
 
-class AddMeme extends Component {
+class MemeForm extends Component {
     constructor(){
         super()
         this.state = {
@@ -85,4 +85,4 @@ class AddMeme extends Component {
     
 }
 
-export default AddMeme;
+export default MemeForm;

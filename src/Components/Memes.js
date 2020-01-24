@@ -25,7 +25,7 @@ class Memes extends Component {
     render(){
         return (
             <div>
-                <Link to='/add-meme'>Add Meme</Link>
+                <Link to='/form'>Add Meme</Link>
                 {this.state.memes.map(element => {
                     return <Meme 
                                 key={element.id}

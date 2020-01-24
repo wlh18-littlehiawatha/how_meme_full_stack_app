@@ -12,7 +12,7 @@ class Meme extends Component {
 
     edit = id => {
         console.log(id)
-        this.props.history.push(`/add-meme/${id}`)
+        this.props.history.push(`/form/${id}`)
     }
 
     render(){
