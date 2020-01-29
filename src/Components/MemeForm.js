@@ -41,7 +41,7 @@ class MemeForm extends Component {
                 title: '',
                 editing: false
             })
-            this.props.history.push('/wall-of-meme')
+            this.props.history.push('/wall-of-memes')
         })
     }
 
@@ -54,7 +54,7 @@ class MemeForm extends Component {
                 title: '',
                 editing: false
             })
-            this.props.history.push('/wall-of-meme')
+            this.props.history.push('/wall-of-memes')
         })
     }
 
@@ -73,6 +73,7 @@ class MemeForm extends Component {
                     onChange={e => this.handleChange(e)}
                     placeholder='Meme Title'
                     value={this.state.title}
+                    maxLength='20'
                 />
                 {editing ? (
                     <button onClick={() => this.updateMeme(id, url, title)}>Update Meme!</button>

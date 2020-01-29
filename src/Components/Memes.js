@@ -24,15 +24,17 @@ class Memes extends Component {
 
     render(){
         return (
-            <div>
-                <Link to='/form'>Add Meme</Link>
-                {this.state.memes.map(element => {
-                    return <Meme 
-                                key={element.id}
-                                memeInfo={element}
-                                reRender={this.reRender}
-                            />
-                })}
+            <div className='meme-dashboard'>
+                <Link to='/form' className='add-meme-link'>Add A Meme</Link>
+                <div className='memes-container'>
+                    {this.state.memes.map(element => {
+                        return <Meme 
+                                    key={element.id}
+                                    memeInfo={element}
+                                    reRender={this.reRender}
+                                />
+                    })}
+                </div>
             </div>
         )
     }
