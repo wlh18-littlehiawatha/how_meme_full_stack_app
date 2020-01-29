@@ -33,6 +33,12 @@ class MemeForm extends Component {
     }
 
     addMeme = (url, title) => {
+        if(!url){
+            url = 'https://is3-ssl.mzstatic.com/image/thumb/Purple69/v4/42/b6/65/42b665fa-8ce6-2550-58af-ffeb981ebecb/source/512x512bb.jpg'
+        }
+        if(!title){
+            title = 'Lame Caption'
+        }
         axios.post('/api/memes', {url, title})
         .then(()=> {
             this.setState({
@@ -46,6 +52,12 @@ class MemeForm extends Component {
     }
 
     updateMeme = (id, url, title) => {
+        if(!url){
+            url = 'https://is3-ssl.mzstatic.com/image/thumb/Purple69/v4/42/b6/65/42b665fa-8ce6-2550-58af-ffeb981ebecb/source/512x512bb.jpg'
+        }
+        if(!title){
+            title = 'Lame Caption'
+        }
         axios.put(`/api/memes/${id}`, {url, title})
         .then(()=> {
             this.setState({
@@ -60,26 +72,35 @@ class MemeForm extends Component {
 
     render(){
         const {editing, id, url, title} = this.state
+        console.log(this.state.url)
         return (
-            <div className="add-box">
-                <input
-                    name='url'
-                    onChange={e => this.handleChange(e)}
-                    placeholder='Meme URL'
-                    value={this.state.url}
-                />
-                <input
-                    name='title'
-                    onChange={e => this.handleChange(e)}
-                    placeholder='Meme Title'
-                    value={this.state.title}
-                    maxLength='20'
-                />
-                {editing ? (
-                    <button onClick={() => this.updateMeme(id, url, title)}>Update Meme!</button>
-                ) : (
-                    <button onClick={() => this.addMeme(url, title)}>Add Meme!</button>
-                )}
+            <div className='form-container'>
+                <div className="form-box">
+                    <input
+                        name='title'
+                        onChange={e => this.handleChange(e)}
+                        placeholder='Meme Title'
+                        value={this.state.title}
+                        maxLength='20'
+                        className='meme-title-input'
+                    />
+                    <img
+                        src={`${url}` || 'https://is3-ssl.mzstatic.com/image/thumb/Purple69/v4/42/b6/65/42b665fa-8ce6-2550-58af-ffeb981ebecb/source/512x512bb.jpg'}
+                        alt='meme preview'
+                    />
+                    <input
+                        name='url'
+                        onChange={e => this.handleChange(e)}
+                        placeholder='Meme URL'
+                        value={this.state.url}
+                        className='url-input'
+                    />
+                    {editing ? (
+                        <button onClick={() => this.updateMeme(id, url, title)} className='add-edit-button'>Update Meme!</button>
+                    ) : (
+                        <button onClick={() => this.addMeme(url, title)} className='add-edit-button'>Add Meme!</button>
+                    )}
+                </div>
             </div>
         );
     }

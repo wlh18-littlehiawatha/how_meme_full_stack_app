@@ -82,6 +82,54 @@ mark {
   text-align: center;
 }
 
+.form-container {
+  background-color: #bef2ef;
+  height: calc(100vh - 50px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3e4ea;
+  height: 450px;
+  width: 400px;
+  margin-bottom: 30px;
+}
+
+.form-box > img {
+  height: 275px;
+  border: 2px solid black;
+}
+
+.meme-title-input {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+}
+
+.url-input {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+  margin-top: 20px;
+}
+
 .meme-dashboard{
   display: flex;
   flex-direction: column;
@@ -106,7 +154,7 @@ mark {
   padding-bottom: 10px;
 }
 
-.memes-container{
+.memes-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -115,7 +163,7 @@ mark {
   padding: 30px;
 }
 
-.meme-box{
+.meme-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,7 +175,7 @@ mark {
 }
 
 .meme-box > img {
-  width: 200px;
+  height: 275px;
   border: 2px solid black;
 }
 
@@ -180,5 +228,8 @@ mark {
 
 .meme-buttons {
   width: 90px;
+}
 
+.add-edit-button {
+  width: 120px;
 }
