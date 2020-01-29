@@ -23,8 +23,8 @@ class Favorites extends Component {
 
 function mapStateToProps(state) {
 	return {
-		favorites: state.reducer.favorited
+		favorites: state.reducer.favrited
 	};
 }
 
-export default connect(mapStateToProps)(Favorites);
+export default connect()(Favorites);

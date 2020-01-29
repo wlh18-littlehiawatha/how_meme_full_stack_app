@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom'
 import axios from 'axios'
 import {connect} from 'react-redux'
-import {unfavorite, favorited} from '../ducks/reducer'
 
 class Meme extends Component {
     constructor(){
@@ -21,18 +20,13 @@ class Meme extends Component {
                 })
             }
         }
-        if(this.props.favorite){
-            this.setState({
-                favorited: true
-            })
-        }
     }
 
     delete = id => {
         axios.delete(`/api/memes/${id}`)
         .then(() => {
             if(this.props.favorite){
-                this.props.unfavorite(id);
+                this.props.unfavorite();
             } else {
                 this.props.reRender()
             }
@@ -40,7 +34,6 @@ class Meme extends Component {
     }
 
     edit = id => {
-        console.log(id)
         this.props.history.push(`/form/${id}`)
     }
 
@@ -56,14 +49,13 @@ class Meme extends Component {
     }
 
     render(){
-        console.log(this.props)
         return(
             <div className='meme-box'>
                 <div className='meme-title'>{this.props.memeInfo.title}</div>
                 <img src={`${this.props.memeInfo.url}`} alt='pic of meme'/>
                 <div className='button-container'>
                     <button onClick={() => this.delete(this.props.memeInfo.id)} className='meme-buttons'>Delete</button>
-                    <div onClick={() => this.toggleFav(this.props.memeInfo)}>
+                    <div onClick={() => this.toggleFav()}>
                         {this.state.favorited ? (
                             <div className='heart'/>
                         ):(
@@ -79,7 +71,7 @@ class Meme extends Component {
 
 function mapStateToProps(state) {
     return {
-        favorites: state.reducer.favorited
+        favorites: state.reducer.favrited
     }
 }
 

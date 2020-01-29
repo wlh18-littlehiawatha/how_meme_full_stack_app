@@ -14,7 +14,6 @@ class MemeForm extends Component {
 
     componentDidMount(){
         if(this.props.match.params.id){
-            console.log('this.props.match', this.props.match)
             axios.get(`/api/memes/${this.props.match.params.id}`)
             .then(res => this.setState({
                 id: res.data.id,
@@ -41,12 +40,6 @@ class MemeForm extends Component {
         }
         axios.post('/api/memes', {url, title})
         .then(()=> {
-            this.setState({
-                id: 0,
-                url: '',
-                title: '',
-                editing: false
-            })
             this.props.history.push('/wall-of-memes')
         })
     }
@@ -58,27 +51,20 @@ class MemeForm extends Component {
         if(!title){
             title = 'Lame Caption'
         }
-        axios.put(`/api/memes/${id}`, {url, title})
+        axios.put(`/api/memes/${id}`)
         .then(()=> {
-            this.setState({
-                id: 0,
-                url: '',
-                title: '',
-                editing: false
-            })
             this.props.history.push('/wall-of-memes')
         })
     }
 
     render(){
-        const {editing, id, url, title} = this.state
-        console.log(this.state.url)
+        const {id, url, title} = this.state
         return (
             <div className='form-container'>
                 <div className="form-box">
                     <input
-                        name='title'
-                        onChange={e => this.handleChange(e)}
+                        name='tile'
+                        onChange={this.handleChange}
                         placeholder='Meme Title'
                         value={this.state.title}
                         maxLength='20'
@@ -92,7 +78,7 @@ class MemeForm extends Component {
                         name='url'
                         onChange={e => this.handleChange(e)}
                         placeholder='Meme URL'
-                        value={this.state.url}
+                        value={this.state.curl}
                         className='url-input'
                     />
                     {editing ? (
@@ -100,7 +86,7 @@ class MemeForm extends Component {
                     ) : (
                         <button onClick={() => this.addMeme(url, title)} className='add-edit-button'>Add Meme!</button>
                     )}
-                </div>
+                </div
             </div>
         );
     }

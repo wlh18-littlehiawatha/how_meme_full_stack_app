@@ -1,7 +1,6 @@
 import React from "react";
 
-function Landing(props) {
-	console.log(props);
+class Landing(props) {
 	return (
 		<div className="landing-box">
 			<mark>Welcome to HowMeme!</mark>

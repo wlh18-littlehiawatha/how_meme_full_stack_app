@@ -16,9 +16,7 @@ module.exports = {
         const {favorited} = req.session
         const {id} = req.params
         const index = favorited.findIndex(meme => meme.id === +id)
-        console.log(index)
         favorited.splice(index, 1)
-        console.log(favorited)
         res.status(200).send(favorited)
     }
 }

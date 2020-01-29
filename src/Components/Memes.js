@@ -18,7 +18,7 @@ class Memes extends Component {
     reRender = () => {
         axios.get('/api/memes')
         .then(res => this.setState({
-            memes: res.data
+            mememes: res.data
         }))
     }
 
@@ -31,7 +31,6 @@ class Memes extends Component {
                         return <Meme 
                                     key={element.id}
                                     memeInfo={element}
-                                    reRender={this.reRender}
                                 />
                     })}
                 </div>

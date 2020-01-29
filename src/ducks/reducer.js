@@ -1,10 +1,7 @@
-import axios from 'axios'
-
 const initialState = {
     favorited: []
 }
 
-const ADD_FAVORITE = "ADD_FAVORITE"
 const DELETE_FAVORITE = "DELETE_FAVORITE"
 
 export const favorited = (memeInfo) => {
@@ -28,7 +25,7 @@ export default function (state = initialState, action) {
     switch(type){
         case ADD_FAVORITE + '_FULFILLED':
             return {favorited: payload}
-        case DELETE_FAVORITE + '_FULFILLED':
+        case DELETE_FAVORITE:
             return {favorited: payload}
         default:
             return state
