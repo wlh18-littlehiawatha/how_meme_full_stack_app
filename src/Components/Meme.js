@@ -3,6 +3,9 @@ import {withRouter} from 'react-router-dom'
 import axios from 'axios'
 import {connect} from 'react-redux'
 
+import {unfavorite, favorited} from '../ducks/reducer'
+
+
 class Meme extends Component {
     constructor(){
         super()
@@ -71,7 +74,7 @@ class Meme extends Component {
 
 function mapStateToProps(state) {
     return {
-        favorites: state.reducer.favrited
+        favorites: state.reducer.favorited
     }
 }
 
